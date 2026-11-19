@@ -13,7 +13,7 @@ window.CONFIG = {
   GITHUB_REPOSITORY: "dash-luvi-dzc",
 
   // Nome do projeto/cliente (referência em documentação).
-  PROJECT_NAME: "Bruno Corano — Renda em Dólar",
+  PROJECT_NAME: "Luvi — Do Zero ao Contrato",
 
   // Montado a partir de GITHUB_USERNAME/GITHUB_REPOSITORY acima — é a URL
   // pública que o dashboard terá depois de ativar o Pages.

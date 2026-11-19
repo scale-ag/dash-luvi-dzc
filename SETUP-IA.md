@@ -21,12 +21,12 @@ publica sozinho — sem repetir nada manualmente na Cloudflare.
 4. Clique no botão **Create**.
 5. Escolha **"Start from scratch"** (não use um template pronto de exemplo).
 6. Dê um nome ao Worker, igual ao que você vai colocar em `ia-worker/wrangler.toml`
-   (`bruno-corano-dzc-ia-insights`) → clique em **Deploy**.
+   (`luvi-dzc-ia-insights`) → clique em **Deploy**.
 7. Clique em **Edit code**, apague todo o conteúdo e cole o conteúdo de
    **`ia-worker/worker.js`** deste repositório → clique em **Deploy** (ou
    **Save and Deploy**).
 8. Copie a **URL** do Worker exibida (formato
-   `https://bruno-corano-dzc-ia-insights.<subdominio-da-conta>.workers.dev`) — vai usar no
+   `https://luvi-dzc-ia-insights.<subdominio-da-conta>.workers.dev`) — vai usar no
    passo A.4.
 
 ### A.2 — Pegar o Account ID e criar o API Token da Cloudflare

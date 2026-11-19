@@ -1,4 +1,4 @@
-# Dashboard de Controle de Tráfego Pago — Bruno Corano / Renda em Dólar (Funil VSL)
+# Dashboard de Controle de Tráfego Pago — Luvi / Do Zero ao Contrato (Black Friday DZC)
 
 > **TEMPLATE.** Antes de publicar, siga o **CHECKLIST DE NOVO CLIENTE** no topo
 > do `CLAUDE.md` (ou `AGENTS.md`) e troque todos os marcadores de preenchimento.
@@ -136,7 +136,7 @@ com prints e troubleshooting, está em **`SETUP-IA.md`**. Resumo:
    variables → Actions**): `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`,
    `ANTHROPIC_API_KEY`, `INSIGHTS_PASSWORD`.
 4. Ajuste `ia-worker/wrangler.toml` (`name = "..."`, troque o marcador
-   `bruno-corano-dzc-ia-insights`).
+   `luvi-dzc-ia-insights`).
 5. Um commit tocando qualquer arquivo em `ia-worker/` dispara o deploy
    automático do Worker (`.github/workflows/deploy-worker.yml`), que também
    cria o KV namespace de persistência e aplica os secrets.

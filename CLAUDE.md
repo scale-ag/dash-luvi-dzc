@@ -1,8 +1,8 @@
 # CLAUDE.md — Dashboard de Controle de Tráfego Pago (TEMPLATE)
 
 > Este arquivo é lido automaticamente pelo Claude Code ao abrir o repositório.
-> **TEMPLATE** — configurado para o cliente **Bruno Corano**
-> (funil "Renda em Dólar (Funil VSL)", sigla `DZC`).
+> **TEMPLATE** — configurado para o cliente **Luvi**
+> (funil "Do Zero ao Contrato (Black Friday DZC)", sigla `DZC`).
 > A engine (`build/template.html`, `build/build.py`, `build/app.js`, CSS,
 > `ia-worker/worker.js`, workflows) é genérica e não deve ser editada por
 > cliente; os valores do cliente ficam em **`build/config.py`** (config do funil)
@@ -75,7 +75,7 @@ de **Compradores** e se atualiza a cada ~30 min (build na nuvem via GitHub Actio
 disparado pelo cron-job.org). **Somente leitura** das planilhas.
 
 - **URL pública:** `https://scale-ag.github.io/dash-luvi-dzc/`
-- **Cliente/projeto:** Bruno Corano — Renda em Dólar (Funil VSL)
+- **Cliente/projeto:** Luvi — Do Zero ao Contrato (Black Friday DZC)
   (rótulos exibidos vêm de `CLIENT_NAME`/`CLIENT_SUB` em `build/config.py`)
 - **Tipo de funil:** lançamento pago / tráfego direto (não há etapa de Leads/MQL) —
   `Gasto → Impressões → Cliques → Page Views → Checkouts → Vendas → Faturamento`

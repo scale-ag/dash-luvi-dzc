@@ -1,4 +1,4 @@
-name = "bruno-corano-dzc-ia-insights"   # mesmo nome do Worker criado na Cloudflare (SETUP-IA.md, passo A.1.6)
+name = "luvi-dzc-ia-insights"   # mesmo nome do Worker criado na Cloudflare (SETUP-IA.md, passo A.1.6)
 main = "worker.js"
 compatibility_date = "2026-01-01"
 

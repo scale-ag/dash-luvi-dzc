@@ -66,7 +66,7 @@ grep -rn "<<PREENCHER" --exclude-dir=.git . | grep -v -E "^\./(CLAUDE|AGENTS)\.m
 
 ## Projeto
 
-- **Cliente/funil:** Bruno Corano — Renda em Dólar (Funil VSL)
+- **Cliente/funil:** Luvi — Do Zero ao Contrato (Black Friday DZC)
 - **URL pública:** `https://scale-ag.github.io/dash-luvi-dzc/`
 - **Tipo de funil:** lançamento pago / tráfego direto —
   `Gasto → Impressões → Cliques → Page Views → Checkouts → Vendas → Faturamento`

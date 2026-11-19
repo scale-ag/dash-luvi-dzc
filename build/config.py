@@ -27,7 +27,7 @@ from __future__ import annotations
 SPREADSHEET_ID = "1AJC2FZNqc-KL5TiUy5scEFHt6FS_3mJdQplVBagPhiI"  # "Dados gerenciador - DZC"
 # Opcional: se a lista de Compradores estiver em OUTRA planilha, coloque o ID
 # dela aqui. Vazio = Compradores na mesma planilha do Meta Ads (padrão).
-# Bruno Corano: Vendas fica em planilha separada ("Vendas BF2026 – Do Zero ao Contrato").
+# Luvi: Vendas fica em planilha separada ("Vendas BF2026 – Do Zero ao Contrato").
 SPREADSHEET_ID_SALES = "1fVmJpiS1ubQIc2-wezzB9PkJnjs3agmeeC-0dlpcaVY"
 GID_META = "0"  # aba "Página1"
 GID_SALES = "1010133128"  # aba "Vendas"
@@ -61,14 +61,14 @@ AD_UTM_COLUMN = "utm_content"
 COUNT_ALL_AS_PAID = False
 
 # Opcional: ignora vendas ANTERIORES a esta data (AAAA-MM-DD), ex.: compras de
-# teste antes do funil ir ao ar. Bruno Corano: as compras de 17/11/2026 foram testes.
+# teste antes do funil ir ao ar. Luvi: as compras de 17/11/2026 foram testes.
 SALES_START_DATE = "2026-11-18"
 
 # ==========================================================================
 # 3) RÓTULOS EXIBIDOS NA INTERFACE
 # ==========================================================================
-CLIENT_NAME = "Bruno Corano"
-CLIENT_SUB = "Renda em Dólar · Funil VSL"
+CLIENT_NAME = "Luvi"
+CLIENT_SUB = "Black Friday DZC"
 TAX_LABEL = "Imposto Meta ×1,13806"
 MAIN_PRODUCT = "Do Zero ao Contrato"
 
@@ -91,5 +91,5 @@ REPORT_BAND_HIGH = 1.30
 # ==========================================================================
 # URL pública do Worker (não é secreta). Vazio = aba IA Insights indisponível.
 # Preencher depois de publicar o Worker (checklist do CLAUDE.md).
-# Worker "bruno-corano-dzc-ia-insights" ainda não publicado (SETUP-IA.md) — preencher a URL depois.
+# Worker "luvi-dzc-ia-insights" ainda não publicado (SETUP-IA.md) — preencher a URL depois.
 IA_WORKER_URL = ""
