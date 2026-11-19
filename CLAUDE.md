@@ -111,7 +111,8 @@ Verificado em 19/11/2026:
   `FRIO_03_PROVOCACAO`) que não casam com o Meta — contam como produto principal, com `meta=0`.
 - A aba Vendas **não tem nome nem e-mail** do comprador; sem coluna de nome, o fallback posicional
   do build mostra o **ID do pedido** no campo de nome da tabela.
-- A planilha do Meta começa em 18/11/2026; vendas de 17/11 não têm gasto correspondente.
+- As compras de 17/11/2026 foram **testes** e são ignoradas via `SALES_START_DATE = "2026-11-18"`
+  em `build/config.py` (a planilha do Meta também começa em 18/11/2026).
 - Sem coluna *Creative Instagram Permalink* — Top/Piores anúncios ficam sem link do criativo.
 
 ### Critério de MQL

@@ -58,6 +58,10 @@ AD_UTM_COLUMN = "<<PREENCHER: utm_content | utm_term | utm_medium — a coluna q
 # <<PREENCHER: True se toda linha é venda paga; False se há coluna Status confiável>>
 COUNT_ALL_AS_PAID = True
 
+# Opcional: ignora vendas ANTERIORES a esta data (AAAA-MM-DD), ex.: compras de
+# teste antes do funil ir ao ar. "" = considera todas as datas.
+SALES_START_DATE = ""
+
 # ==========================================================================
 # 3) RÓTULOS EXIBIDOS NA INTERFACE
 # ==========================================================================

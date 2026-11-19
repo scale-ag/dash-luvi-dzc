@@ -60,6 +60,10 @@ AD_UTM_COLUMN = "utm_content"
 # Planilha tem a coluna "Status do pagamento" (ex.: "pago").
 COUNT_ALL_AS_PAID = False
 
+# Opcional: ignora vendas ANTERIORES a esta data (AAAA-MM-DD), ex.: compras de
+# teste antes do funil ir ao ar. Bruno Corano: as compras de 17/11/2026 foram testes.
+SALES_START_DATE = "2026-11-18"
+
 # ==========================================================================
 # 3) RÓTULOS EXIBIDOS NA INTERFACE
 # ==========================================================================

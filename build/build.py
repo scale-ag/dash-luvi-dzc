@@ -84,6 +84,11 @@ IA_WORKER_URL = cfg.IA_WORKER_URL
 # uns mandam o nome do anuncio em utm_content, outros em utm_term (e ai o
 # utm_content costuma trazer o POSICIONAMENTO). Ausente/vazio -> utm_content
 # (padrao do template). Casar pela coluna errada zera as atribuicoes.
+# Opcional: ignora vendas com data ANTERIOR a esta (AAAA-MM-DD) — ex.: compras de
+# teste feitas antes do funil ir ao ar. Ausente/vazio -> considera todas as datas.
+SALES_START_DATE = (getattr(cfg, "SALES_START_DATE", "") or "").strip()
+if SALES_START_DATE and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", SALES_START_DATE):
+    sys.exit(f"ERRO: SALES_START_DATE={SALES_START_DATE!r} em build/config.py deve ser AAAA-MM-DD.")
 _AD_UTM_VALIDAS = ("utm_content", "utm_term", "utm_medium")
 AD_UTM_COLUMN = getattr(cfg, "AD_UTM_COLUMN", "") or "utm_content"
 if AD_UTM_COLUMN not in _AD_UTM_VALIDAS:
@@ -316,6 +321,10 @@ def process(meta_rows, sales_rows):
             continue
         if not COUNT_ALL_AS_PAID and not is_paid(cell(row, sidx["status"])):
             continue
+        if SALES_START_DATE:
+            sale_day = parse_date(cell(row, sidx["created"]))
+            if sale_day and sale_day < SALES_START_DATE:
+                continue
         prod = cell(row, sidx["prod"])
         # O identificador do anúncio no Meta (Ad Name) vem da coluna UTM apontada
         # por AD_UTM_COLUMN em build/config.py — que coluna é depende do
