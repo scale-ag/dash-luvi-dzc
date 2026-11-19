@@ -257,7 +257,10 @@ const METRIC_COLS=[
   {key:'gasto',label:'Gasto',type:'brl',heat:'gasto'},   /* heatmap vermelho */
   {key:'cpm',label:'CPM',type:'brl'},
   {key:'ctr',label:'CTR',type:'pct'},
+  {key:'cpc',label:'CPC',type:'brl'},
   {key:'cr',label:'CR',type:'pct'},
+  {key:'ic',label:'IC',type:'int'},
+  {key:'cpic',label:'Custo/IC',type:'brl'},
   {key:'vischk',label:'VisCHK',type:'pct'},
   {key:'convchk',label:'ConvCHK',type:'pct'},
   {key:'vendas',label:'Vendas',type:'int'},
@@ -269,7 +272,7 @@ const METRIC_COLS=[
 const DAILY_COLS=[{key:'date',label:'Data',type:'date'},{key:'wd',label:'Dia',type:'dim',w:64}].concat(METRIC_COLS);
 const HCOLS=[{key:'dim',label:'',type:'dim',big:true}].concat(METRIC_COLS.map(c=>{const o={...c}; delete o.heat; return o;}));
 function metricCells(x,d){
-  return {gasto:d.gasto, cpm:d.cpm, ctr:d.ctr, cr:d.cr, vischk:d.vischk, convchk:d.convchk,
+  return {gasto:d.gasto, cpm:d.cpm, ctr:d.ctr, cpc:d.cpc, cr:d.cr, ic:d.ck, cpic:d.cpic, vischk:d.vischk, convchk:d.convchk,
     vendas:x.vendas, cac:d.cac, fat:x.fat, ticket:d.ticket, roas:d.roas};
 }
 function dailyCells(x,d,isTotal){
