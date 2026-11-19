@@ -66,8 +66,8 @@ grep -rn "<<PREENCHER" --exclude-dir=.git . | grep -v -E "^\./(CLAUDE|AGENTS)\.m
 
 ## Projeto
 
-- **Cliente/funil:** <<PREENCHER: nome do cliente — nome do funil/lançamento>>
-- **URL pública:** `<<PREENCHER: URL do GitHub Pages, ex.: https://<owner>.github.io/<repo>/>>`
+- **Cliente/funil:** Bruno Corano — Renda em Dólar (Funil VSL)
+- **URL pública:** `https://scale-ag.github.io/dash-luvi-dzc/`
 - **Tipo de funil:** lançamento pago / tráfego direto —
   `Gasto → Impressões → Cliques → Page Views → Checkouts → Vendas → Faturamento`
 

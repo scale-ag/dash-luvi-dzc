@@ -1,8 +1,8 @@
 # CLAUDE.md — Dashboard de Controle de Tráfego Pago (TEMPLATE)
 
 > Este arquivo é lido automaticamente pelo Claude Code ao abrir o repositório.
-> **TEMPLATE** — configurado para o cliente **<<PREENCHER: nome do cliente>>**
-> (funil "<<PREENCHER: nome do funil/lançamento>>", sigla `<<PREENCHER: sigla do funil usada nas campanhas>>`).
+> **TEMPLATE** — configurado para o cliente **Bruno Corano**
+> (funil "Renda em Dólar (Funil VSL)", sigla `DZC`).
 > A engine (`build/template.html`, `build/build.py`, `build/app.js`, CSS,
 > `ia-worker/worker.js`, workflows) é genérica e não deve ser editada por
 > cliente; os valores do cliente ficam em **`build/config.py`** (config do funil)
@@ -74,8 +74,8 @@ via CDN) publicado no **GitHub Pages**, que cruza o gerenciador **Meta Ads** com
 de **Compradores** e se atualiza a cada ~30 min (build na nuvem via GitHub Actions,
 disparado pelo cron-job.org). **Somente leitura** das planilhas.
 
-- **URL pública:** `<<PREENCHER: URL do GitHub Pages, ex.: https://<owner>.github.io/<repo>/>>`
-- **Cliente/projeto:** <<PREENCHER: nome do cliente — nome do funil/lançamento>>
+- **URL pública:** `https://scale-ag.github.io/dash-luvi-dzc/`
+- **Cliente/projeto:** Bruno Corano — Renda em Dólar (Funil VSL)
   (rótulos exibidos vêm de `CLIENT_NAME`/`CLIENT_SUB` em `build/config.py`)
 - **Tipo de funil:** lançamento pago / tráfego direto (não há etapa de Leads/MQL) —
   `Gasto → Impressões → Cliques → Page Views → Checkouts → Vendas → Faturamento`
@@ -88,30 +88,35 @@ preencha também `SPREADSHEET_ID_SALES` em `build/config.py`.
 
 | Fonte | Planilha (`SPREADSHEET_ID*`) | gid | Aba |
 |-------|------------------------------|-----|-----|
-| **Meta Ads** | `<<PREENCHER: SPREADSHEET_ID>>` | `<<PREENCHER: GID_META>>` | <<PREENCHER: nome da aba Meta Ads>> |
-| **Compradores** | `<<PREENCHER: SPREADSHEET_ID_SALES ou o mesmo SPREADSHEET_ID>>` | `<<PREENCHER: GID_SALES>>` | <<PREENCHER: nome da aba de Compradores/Vendas>> |
+| **Meta Ads** | `1AJC2FZNqc-KL5TiUy5scEFHt6FS_3mJdQplVBagPhiI` ("Dados gerenciador - DZC") | `0` | Página1 |
+| **Compradores** | `1fVmJpiS1ubQIc2-wezzB9PkJnjs3agmeeC-0dlpcaVY` ("Vendas BF2026 – Do Zero ao Contrato", planilha separada) | `1010133128` | Vendas |
 
 **Colunas reais — Meta Ads** (o `header_index` do `build.py` casa por nome, a
 ordem não importa):
-<<PREENCHER: lista das colunas da aba Meta Ads, ex.: Day · Campaign Name · Ad Set Name · Ad Name · Amount Spent · Impressions · Link Clicks · Landing Page Views · Checkouts Initiated>>
+Day · Campaign Name · Ad Set Name · Ad Name · Amount Spent · Impressions · Link Clicks · Landing Page Views · Checkouts Initiated
 
 **Colunas reais — Compradores** (as usadas pelo build: data, nome, e-mail,
 produto, valor/faturamento, utm_campaign, utm_medium, coluna de `AD_UTM_COLUMN`,
 status se houver):
-<<PREENCHER: lista das colunas da aba de Compradores e qual delas é a receita>>
+Data/hora · ID do pedido · Produto · Valor (R$) · Status do pagamento · utm_source · utm_medium · utm_campaign · utm_content · utm_term
+— receita = **Valor (R$)**; status = **Status do pagamento** (`pago`).
 
 ### Pontos de atenção deste cliente
 
-<<PREENCHER: particularidades verificadas na planilha (data da verificação) —
-ex.: qual coluna UTM carrega o Ad Name e quantos valores batem com o Meta,
-janelas de data sem sobreposição, ausência de coluna de status, coluna de
-receita (bruta/líquida), ausência da coluna de permalink do criativo, abas que
-NÃO devem ser usadas. Apague este bloco se não houver nada a registrar.>>
+Verificado em 19/11/2026:
+- Meta Ads e Vendas ficam em **planilhas separadas** (`SPREADSHEET_ID_SALES` preenchido); ambas
+  precisam estar como "Qualquer pessoa com o link — Leitor" (a de Vendas estava restrita no início).
+- `utm_content` carrega o Ad Name do Meta (`BF_DZC_*`); `utm_term` traz o **ID numérico** do
+  anúncio e `utm_medium` o conjunto. Há vendas com UTMs de outro padrão (`exe_lt_dozero_frio`,
+  `FRIO_03_PROVOCACAO`) que não casam com o Meta — contam como produto principal, com `meta=0`.
+- A aba Vendas **não tem nome nem e-mail** do comprador; sem coluna de nome, o fallback posicional
+  do build mostra o **ID do pedido** no campo de nome da tabela.
+- A planilha do Meta começa em 18/11/2026; vendas de 17/11 não têm gasto correspondente.
+- Sem coluna *Creative Instagram Permalink* — Top/Piores anúncios ficam sem link do criativo.
 
 ### Critério de MQL
 
-Funil de lançamento pago sem etapa de Leads/MQL. <<PREENCHER: confirmar com o
-gestor se há critério de MQL; se não houver, manter "não há etapa de MQL nesta dashboard".>>
+Funil de lançamento pago sem etapa de Leads/MQL. Não há etapa de MQL nesta dashboard.
 
 URL de export CSV: `https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID}/export?format=csv&gid={GID}`
 
@@ -124,7 +129,7 @@ ConvCHK (Vendas/Checkouts) · Faturamento · ROAS (Faturamento/Gasto) · Ticket 
 
 ### Produto principal / atribuição
 - **Produto principal** = `MAIN_PRODUCT_PREFIX` (definido em `build/config.py`) —
-  neste cliente: <<PREENCHER: nome do produto principal como aparece na planilha>>.
+  neste cliente: **Executa Licitação — Do Zero ao Contrato** (prefixo `executa licitacao — do zero ao contrato`).
   Base de **Vendas / CAC / ConvCHK / Ticket**.
 - **Faturamento / ROAS** = soma de **todos os produtos** do funil (orderbumps/upsells).
 - Uma venda entra no funil se: é o produto principal **OU** a combinação
@@ -137,7 +142,6 @@ ConvCHK (Vendas/Checkouts) · Faturamento · ROAS (Faturamento/Gasto) · Ticket 
   recebe `meta=1` (é o que a aba Meta Ads considera tráfego pago). Vendas de outros
   funis (UTM/produto não relacionados) ficam de fora. Só conta status pago (ou todas
   as linhas, se `COUNT_ALL_AS_PAID = True`).
-- <<PREENCHER: regra de atribuição específica deste cliente, se diferente da padrão acima; senão apague esta linha.>>
 - Se não houver coluna de Receita, não há Receita/ROAS/Ticket — ajuste o texto desta
   seção se o cliente tiver uma regra diferente.
 
@@ -145,12 +149,12 @@ ConvCHK (Vendas/Checkouts) · Faturamento · ROAS (Faturamento/Gasto) · Ticket 
 Toggle ON aplica o `TAX_FACTOR` (definido em `build/config.py`) sobre os custos do Meta.
 
 ### Convenções de campanha
-- Nomenclatura de campanha: `<<PREENCHER: padrão do nome de campanha, ex.: SIGLA | ETAPA | TEMPERATURA | ...>>`
-- Nomenclatura de conjunto: `<<PREENCHER: padrão do nome de conjunto>>`
-- Nomenclatura de anúncio: `<<PREENCHER: padrão do nome de anúncio>>`
+- Nomenclatura de campanha: `DZC | P1-QUENTE/P2-FRIO | VENDAS | CBO | AAAA-MM-DD | <teste>` (ex.: `DZC | P2-FRIO | VENDAS | CBO | 2026-11-18 | Teste Lookalike`)
+- Nomenclatura de conjunto: público livre (ex.: `Aberto ADV`, `AUTO | Lookalike 1% Lista Adianto`)
+- Nomenclatura de anúncio: `BF_DZC_<VIDEO|ESTATICO>_<nº>` (ex.: `BF_DZC_VIDEO_11`, `BF_DZC_ESTATICO_19-01`)
 - Mapeamento UTM → Meta neste cliente (verificado nos dados):
   `utm_campaign → Campaign Name` · `utm_medium → Ad Set Name` ·
-  `<<PREENCHER: coluna de AD_UTM_COLUMN>> → Ad Name`.
+  `utm_content → Ad Name`.
 
 O match com o Meta (campo `meta`, usado pela aba Meta Ads) exige `utm_campaign` +
 a coluna de `AD_UTM_COLUMN` batendo com uma linha real do Meta; quando casa, a venda
